@@ -1,0 +1,84 @@
+body {
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* README Styles ... */
+#readme-content {
+    overflow: hidden;
+    font-size: 1em;
+    max-height: 30em; /* ca. 10 Zeilen (je nach Zeilenhöhe) */
+    position: relative;
+    transition: max-height 0.5s ease;
+}
+
+#readme-content.collapsed::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2em;
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+}
+ 
+#toggleReadme {
+    margin-top: 0.5em;
+    cursor: pointer;
+}
+
+/* Neue Styles für Repo-Anzeige */
+#repo-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 2em;
+}
+
+#left-col, 
+#right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.repo {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #000000;
+    color: white
+}
+
+.repo a {
+    color: white;
+    text-decoration: none;
+}
+
+.repo img {
+    width: 100%;
+    height: auto;
+}
+
+.repo-img {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 2 / 1.5;
+}
+
+.repo-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Gradient-Overlay am unteren Drittel */
+.repo-img::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(transparent, rgb(0,0,0));
+}

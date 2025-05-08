@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>
 </head>
 <body>
-    <div id="readme">
-        // readme.md from doctor-versum/doctor-versum repo
+    <div id="readme-container">
+        <div id="readme-content">
+            <!-- Hier wird die README.md angezeigt -->
+        </div>
+        <button id="toggleReadme" style="display:none;">show more</button>
+    </div>
+    <div id="repo-container">
+        <div id="left-col"></div>
+        <div id="right-col"></div>
     </div>
 </body>
 </html>
