@@ -19,6 +19,17 @@ fetchReadme().then((text) => {
     const toggleBtn = document.getElementById("toggleReadme");
     // README-Inhalt via marked parsen und einfügen
     readmeContentElement.innerHTML = marked.parse(text);
+    
+    // Für alle <img>-Tags: Falls das src nicht mit http oder https startet, 
+    // wird der Prefix hinzugefügt.
+    const imgs = readmeContentElement.querySelectorAll('img');
+    imgs.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && !src.startsWith('http://') && !src.startsWith('https://')) {
+            img.setAttribute('src', `https://raw.githubusercontent.com/doctor-versum/doctor-versum/main/${src}`);
+        }
+    });
+
     // Initial prüfen: wenn der Inhalt höher ist als der initiale max-height()-Wert,
     // dann den Inhalt einklappen und den Button sichtbar machen.
     if (readmeContentElement.scrollHeight > readmeContentElement.clientHeight) {
