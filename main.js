@@ -16,5 +16,6 @@ async function fetchReadme() {
 fetchReadme().then((text) => {
     console.log(text);
     const readmeElement = document.getElementById("readme");
+    
     readmeElement.innerHTML = marked.parse(text);
 });
