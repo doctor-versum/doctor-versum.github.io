@@ -82,3 +82,23 @@ body {
     height: 50%;
     background: linear-gradient(transparent, rgb(0,0,0));
 }
+
+/* Standardmäßig beide anzeigen (Fallback für Browser ohne prefers-color-scheme) */
+.gh-light-mode-only,
+.gh-dark-mode-only {
+  display: none;
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  .gh-light-mode-only {
+    display: inline;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .gh-dark-mode-only {
+    display: inline;
+  }
+}
