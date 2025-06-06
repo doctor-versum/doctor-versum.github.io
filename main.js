@@ -13,6 +13,16 @@ async function fetchReadme() {
     }
 }
 
+function updateImageClassesBySrcSuffix() {
+  const images = document.querySelectorAll('#readme img');
+
+  images.forEach(img => {
+    const src = img.getAttribute('src');
+    if (src) {
+    }
+  });
+}
+
 fetchReadme().then((text) => {
     console.log(text);
     const readmeContentElement = document.getElementById("readme-content");
@@ -27,6 +37,11 @@ fetchReadme().then((text) => {
         const src = img.getAttribute('src');
         if (src && !src.startsWith('http://') && !src.startsWith('https://')) {
             img.setAttribute('src', `https://raw.githubusercontent.com/doctor-versum/doctor-versum/main/${src}`);
+        }
+        if (src.endsWith('#gh-light-mode-only')) {
+          img.classList.add('gh-light-mode-only');
+        } else if (src.endsWith('#gh-dark-mode-only')) {
+          img.classList.add('gh-dark-mode-only');
         }
     });
 
