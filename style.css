@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    background-color: #333333;
+    background-color: #1f1f1f;
     color: white;
 }
 
@@ -20,7 +20,7 @@ body {
     left: 0;
     width: 100%;
     height: 2em;
-    background: linear-gradient(rgba(51,51,51,0), rgba(51,51,51,1));
+    background: linear-gradient(rgba(31,31,31,0), rgba(31,31,31,1));
 }
  
 #toggleReadme {
