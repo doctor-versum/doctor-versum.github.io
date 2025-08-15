@@ -49,8 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const imgs = readmeContentElement.querySelectorAll('img');
         imgs.forEach(img => {
             const src = img.getAttribute('src');
-            if (src && !src.startsWith('http')) {
-                img.src = `https://raw.githubusercontent.com/doctor-versum/doctor-versum/main/${src}`;
+            if (src && !src.startsWith('http://') && !src.startsWith('https://')) {
+                img.setAttribute('src', `https://raw.githubusercontent.com/doctor-versum/doctor-versum/main/${src}`);
+            }
+
+            if (src.endsWith('#gh-light-mode-only')) {
+                img.classList.add('gh-light-mode-only');
+            } 
+            if (src.endsWith('#gh-dark-mode-only')) {
+                img.classList.add('gh-dark-mode-only');
             }
         });
 
