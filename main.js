@@ -1,24 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // === Tabs Setup ===
-    const tabs = ["home", "images"];
-    const tabContainer = document.createElement("div");
-    tabContainer.id = "tab-container";
-    tabContainer.classList.add("tab-container");
-
-    tabs.forEach(tab => {
-        const btn = document.createElement("button");
-        btn.textContent = tab.charAt(0).toUpperCase() + tab.slice(1);
-        btn.classList.add("tab-btn");
-        btn.dataset.tab = tab;
-        btn.addEventListener("click", () => {
-            window.location.hash = tab === "home" ? "" : tab;
-        });
-        tabContainer.appendChild(btn);
-    });
-
-    document.body.prepend(tabContainer);
-
     // === Container-Referenzen ===
     const readmeContainer = document.getElementById("readme-container");
     const readmeContentElement = document.getElementById("readme-content");
@@ -154,8 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // === Tab Handling ===
     function showTab(tab) {
-        document.querySelectorAll(".tab-btn").forEach(b => {
-            b.classList.toggle("active", b.dataset.tab === tab);
+        document.querySelectorAll("header nav.tabs button").forEach(b => {
+            b.classList.toggle("selected", b.dataset.tab === tab);
         });
 
         if (tab === "images") {
