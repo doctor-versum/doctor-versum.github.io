@@ -11,15 +11,26 @@
     <script>eruda.init();</script>
 </head>
 <body>
-    <div id="readme-container">
-        <div id="readme-content">
-            <!-- Hier wird die README.md angezeigt -->
-        </div>
-        <button id="toggleReadme" style="display:none;">show more</button>
-    </div>
-    <div id="repo-container">
-        <div id="left-col"></div>
-        <div id="right-col"></div>
-    </div>
+    <header>
+        <nav class="tabs">
+            <button class="tab" data-hash="home">Home</button>
+            <button class="tab" data-hash="images">Images</button>
+        </nav>
+    </header>
+    <main>
+        <section id="home-section">
+            <div id="readme-container">
+                <div id="readme-content"></div>
+                <button id="toggleReadme" style="display:none;">show more</button>
+            </div>
+            <div id="repo-container">
+                <div id="left-col"></div>
+                <div id="right-col"></div>
+            </div>
+        </section>
+        <section id="images-section" style="display:none;">
+            <div id="gallery" class="gallery"></div>
+        </section>
+    </main>
 </body>
 </html>
