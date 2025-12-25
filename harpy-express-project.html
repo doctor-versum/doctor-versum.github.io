@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prism Launcher Guide | Modrinth Edition</title>
     <style>
-        /* --- DESIGN VARIABLEN --- */
         :root {
             --bg-black: #0f0f0f;
             --card-bg: #1a1a1a;
@@ -13,12 +12,10 @@
             --gold-secondary: #f3cf7a;
             --text-gray: #b0b0b0;
             --text-light: #ffffff;
-            --spacing: 20px;
         }
 
-        /* --- BASIS STYLING --- */
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-black);
             color: var(--text-light);
             line-height: 1.6;
@@ -35,7 +32,7 @@
 
         h1 {
             color: var(--gold-primary);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 0;
@@ -47,7 +44,6 @@
             padding: 0 20px;
         }
 
-        /* --- FEATURES SEKTION --- */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -60,19 +56,13 @@
             padding: 20px;
             border-radius: 10px;
             border-left: 4px solid var(--gold-primary);
-            transition: transform 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* --- SCHRITT-FÜR-SCHRITT ANLEITUNG --- */
         .step {
             background: var(--card-bg);
             padding: 30px;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             border: 1px solid #333;
             position: relative;
         }
@@ -94,47 +84,86 @@
 
         h2, h3 { color: var(--gold-secondary); }
 
+        /* --- LINK FIX --- */
+        .lnk { 
+            color: var(--gold-primary);
+            text-decoration: underline; /* Unterstrichen wirkt oft intuitiver */
+            transition: 0.3s;
+        }
+
+        .lnk:hover { 
+            color: var(--gold-secondary); 
+            text-shadow: 0 0 5px var(--gold-primary);
+        }
+
         .btn {
             display: inline-block;
             background: var(--gold-primary);
             color: black;
-            padding: 12px 24px;
+            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            margin-top: 10px;
-            transition: background 0.3s;
+            margin: 10px 5px 0 0;
+            transition: 0.3s;
+            font-size: 0.9rem;
         }
 
-        .btn:hover {
-            background: var(--gold-secondary);
+        .btn:hover { background: var(--gold-secondary); }
+
+        /* --- IP INPUT STYLING --- */
+        .ip-field {
+            background: #000;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-secondary);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            width: 340px; /* Breite erhöht, damit die IP ganz drauf passt */
+            max-width: 100%; /* Verhindert, dass es auf Handys über den Rand schiebt */
+            outline: none;
+            transition: box-shadow 0.3s;
+            margin: 10px 0;
+            text-align: center; /* Zentriert die IP im Feld */
+        }
+
+        .ip-field:focus {
+            box-shadow: 0 0 8px var(--gold-primary);
+        }
+
+        .pro-tip {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px dashed var(--gold-primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
 
         footer {
             text-align: center;
             padding: 40px;
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
-        /* --- EXTRA FEATURES --- */
-        .pro-tip {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px dashed var(--gold-primary);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
+        code {
+            background: #000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--gold-secondary);
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Prism Launcher & Modrinth (The last voyage of the Harpy Express)</h1>
+    <h1>The last voyage of the Harpy Express</h1>
     <p style="color: var(--text-gray);">Der ultimative Guide für modifiziertes Minecraft</p>
 </header>
 
 <div class="container">
+    <h1>Warum Prism?</h1>
 
     <section class="features">
         <div class="feature-card">
@@ -159,8 +188,8 @@
             <p>Lade dir die neueste Version von der offiziellen Website herunter. Prism ist für Windows, macOS und Linux verfügbar.</p>
             <a href="https://prismlauncher.org/download/" class="btn" target="_blank">Download Prism Launcher</a>
             <div class="pro-tip">
-                <strong>Wichtig:</strong> Stelle sicher, dass du die passende Java-Version (mindestens Java 21 für das Modpack) installiert hast!<br>
-                <a href="https://jdk.java.net/" class="btn" target="_blank">Download Java 25 von openJDK</a>
+                <strong>Wichtig:</strong> Installiere Java 21 (empfohlen), damit das Pack stabil läuft.<br>
+                <a href="https://adoptium.net/de/temurin/releases/?version=21" class="btn" target="_blank">Download Java 21 (Temurin)</a>
             </div>
         </div>
 
@@ -177,26 +206,58 @@
 
         <div class="step">
             <div class="step-number">3</div>
-            <h2>Modpack von Modrinth finden</h2>
-            <p>Du musst die Modrinth-Website nicht einmal verlassen, um Packs zu finden – Prism erledigt das für dich:</p>
+            <h2>Modpack finden & installieren</h2>
+            <p>Suche direkt in Prism nach unserem Pack:</p>
             <ul>
-                <li>Klicke oben links auf <strong>"Add Instance"</strong> (Instanz hinzufügen).</li>
-                <li>Wähle im linken Menü den Reiter <strong>"Modrinth"</strong>.</li>
-                <li>Suche oben nach "The last voyage of the Harpy express".</li>
-                <li>Wähle das Modpack mit dem gold-braun belichteten zug aus.</li>
-                <li>Wähle die oberste Version im dropdown aus und klicke auf <strong>"OK"</strong>.</li>
+                <li>Klicke auf <strong>"Add Instance"</strong> -> Reiter <strong>"Modrinth"</strong>.</li>
+                <li>Suche nach <code>The last voyage of the Harpy express</code>.</li>
+                <li>Wähle das Pack mit dem gold-braun belichteten Zug aus.</li>
+                <li>Wähle die oberste Version und klicke auf <strong>"OK"</strong>.</li>
             </ul>
             <div class="pro-tip">
-                <strong>Tipp:</strong> Du kannst auch eine .mrpack Datei von Modrinth herunterladen und sie einfach per Drag & Drop in das Prism-Fenster ziehen!<br>
-                <a href="https://modrinth.com/modpack/harpy-express" class="btn" target="_blank">Download "The last voyage of the Harpy Express" auf Modrinth</a>
-                <a href="https://cdn.modrinth.com/data/qusMP4Bj/versions/5cJWyHka/The%20Last%20Voyage%20of%20the%20Harpy%20Express%201.3.2.mrpack" class="btn" target="_blank">Direkter download der .mrpack</a>
+                <strong>Tipp:</strong> Manueller Weg über die Website:<br>
+                <a href="https://modrinth.com/modpack/harpy-express" class="btn" target="_blank">Modpack auf Modrinth</a>
+                <a href="https://cdn.modrinth.com/data/qusMP4Bj/versions/5cJWyHka/The%20Last%20Voyage%20of%20the%20Harpy%20Express%201.3.2.mrpack" class="btn" target="_blank">Direkt-Download .mrpack</a>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">4</div>
+            <h2>Voicechat & Mikrofon</h2>
+            <p>So stellst du dein Mikrofon im Spiel ein:</p>
+            <ul>
+                <li>Drücke im Spiel <strong>"V"</strong> für das Voicechat-Menü.</li>
+                <li>Klicke auf <strong>"Settings"</strong>.</li>
+                <li>Wähle unter <strong>"Select Microphone"</strong> dein Gerät aus.</li>
+                <li>Teste es mit <strong>"Enable Microphone Test"</strong>.</li>
+            </ul>
+            <div class="pro-tip">
+                <strong>Empfehlung:</strong> Headset verwenden, um Echos für die anderen Spieler zu vermeiden!
             </div>
         </div>
 
         <div class="step">
-            <div class="step-number">4</div>
+            <div class="step-number">5</div>
+            <h2>Vorab-Erkundung</h2>
+            <p>Du kannst den Zug bereits im <strong>Einzelspieler</strong> besuchen, um sicherzugehen, dass dein PC das Pack flüssig darstellt.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">6</div>
+            <h2>Probleme?</h2>
+            <p>Schreib mir einfach auf WhatsApp (Tobias) oder Discord (<code>@Doctor_Versum</code>).</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">7</div>
             <h2>Starten & Genießen</h2>
-            <p>Doppelklicke auf das neue Icon deiner Instanz. Der Launcher lädt nun alle benötigten Dateien und Mods automatisch herunter.</p>
+            <p>Doppelklicke auf die Instanz. Prism lädt alles automatisch.</p>
+            <div class="pro-tip">
+                Die Server IP lautet: <br>
+                <input class="ip-field" readonly value="input-immunology.gl.joinmc.link"> 
+                (via <a href="https://playit.gg" class="lnk" target="_blank">playit.gg</a>)<br>
+                <small>Achtung: Diese ist erst kurz vor dem Start verfügbar!</small>
+            </div>
         </div>
 
     </section>
@@ -204,7 +265,7 @@
 </div>
 
 <footer>
-    &copy; 2025 Minecraft Modding Guide | Erstellt für maximale Performance.
+    &copy; 2025 Tobias - <a href="https://github.com/Doctor-Versum" target="_blank" class="lnk">GitHub: Doctor-Versum</a>
 </footer>
 
 </body>
